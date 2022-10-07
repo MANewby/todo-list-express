@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-const PORT = 2121
+const PORT = 5500
+
 require('dotenv').config()
 
 
@@ -19,7 +20,6 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-
 
 app.get('/',async (request, response)=>{
     const todoItems = await db.collection('todos').find().toArray()
